@@ -49,12 +49,11 @@ class SessionsController {
 
         // Retorno da resposta com token e dados mínimos do usuário
         return response.json({
-            user: {
-                id: user.id,
-                email: user.email,
-            },
-            token,
             message: "Autenticação realizada com sucesso",
+            name: user.name,
+            role: user.role,
+            id: user.id,
+            token,
         });
     }
 }
