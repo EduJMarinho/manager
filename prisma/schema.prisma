@@ -12,6 +12,11 @@ enum UserRole {
   partner
 }
 
+enum TeamRole {
+  collaborator
+  partner
+}
+
 enum TaskStatus {
   Pendente
   EmProgresso
@@ -56,6 +61,7 @@ model Team_Member {
   id        Int      @id @default(autoincrement())
   user_id   Int
   team_id   Int
+  role      TeamRole
   createdAt DateTime @default(now()) @map("created_at")
 
   user User @relation(fields: [user_id], references: [id])
@@ -71,15 +77,13 @@ model Task {
   description String
   status      TaskStatus
   priority    TaskPriority
+  assignedTo  Int? // 👈 agora opcional
+  teamId      Int
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime?    @updatedAt @map("updated_at")
 
-  assignedTo Int
-  teamId     Int
-
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime? @updatedAt @map("updated_at")
-
-  user User @relation(fields: [assignedTo], references: [id])
-  team Team @relation(fields: [teamId], references: [id])
+  user User? @relation(fields: [assignedTo], references: [id], onDelete: SetNull) // 👈 relação ajustada
+  team Team  @relation(fields: [teamId], references: [id])
 
   @@map("tasks")
 }

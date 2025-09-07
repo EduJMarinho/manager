@@ -2,12 +2,11 @@ import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 import { authConfig } from "@/configs/auth";
 import { AppError } from "@/utils/AppError";
-import { string } from "zod";
 
 interface TokenPayload {
-    role: string
-    sub: string
-};
+    role: string;
+    sub: string; // ID do usuário como string
+}
 
 function ensureAuthenticated(
     request: Request,
@@ -15,26 +14,25 @@ function ensureAuthenticated(
     next: NextFunction
 ) {
     try {
-        const authHeader = request.headers.authorization
+        const authHeader = request.headers.authorization;
 
         if (!authHeader) {
-            throw new AppError("JWT Token não encontrado ")
-        };
+            throw new AppError("JWT Token não encontrado", 401);
+        }
 
-        const [, token] = authHeader.split("");
+        const [, token] = authHeader.split(" ");
 
         const { role, sub: user_id } = verify(token, authConfig.jwt.secret) as TokenPayload;
 
         request.user = {
-            id: user_id,
+            id: Number(user_id), // 👈 conversão segura para número
             role,
-        }
+        };
 
         return next();
-
     } catch (error) {
-        throw new AppError(" JWT Token inválido", 401)
-    };
-};
+        throw new AppError("JWT Token inválido", 401);
+    }
+}
 
-export { ensureAuthenticated }
+export { ensureAuthenticated };
