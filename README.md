@@ -1,5 +1,5 @@
 
-# 📚 Este projeto é uma API desenvolvida como parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). A aplicação simula o backend de um sistema de gerenciamento de tarefas, com foco em boas práticas, validação de dados e organização de código.
+ 📚 Este projeto é uma API desenvolvida como parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). A aplicação simula o backend de um sistema de gerenciamento de tarefas, com foco em boas práticas, validação de dados e organização de código.
 
 By Dev. Eduardo José Marinho
 
@@ -8,7 +8,7 @@ By Dev. Eduardo José Marinho
 
 # 📋 Gerenciador de Tarefas
 
-Este projeto é uma API RESTful desenvolvida em Node.js com TypeScript para gerenciamento de tarefas em equipe. Ele permite autenticação de usuários, atribuição de tarefas, categorização por status e prioridade, além de controle de acesso por níveis de permissão.
+Este projeto é uma API RESTful desenvolvida em Node.js e com TypeScript para gerenciamento de tarefas em equipe. Ele permite autenticação de usuários, atribuição de tarefas, categorização por status e prioridade, além de controle de acesso por níveis de permissão. Esse projeto é parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). 
 
 ## 🚀 Tecnologias Utilizadas
 
