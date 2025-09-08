@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { prisma } from "@/database/prisma";
+import { prisma } from "../database/prisma";
 import { compare } from "bcrypt";
 import { z } from "zod";
-import { AppError } from "@/utils/AppError";
-import { authConfig } from "@/configs/auth";
+import { AppError } from "../utils/AppError";
+import { authConfig } from "../configs/auth";
 import { sign } from "jsonwebtoken";
 
 class SessionsController {

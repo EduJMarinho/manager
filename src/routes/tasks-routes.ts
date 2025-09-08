@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { TasksController } from "@/controllers/tasks-controllers";
-import { ensureAuthenticated } from "@/middlewares/ensure-authenticated";
-import { verifyUserAuthorization } from "@/middlewares/verifyUserAuthorization";
+import { TasksController } from "../controllers/tasks-controllers";
+import { ensureAuthenticated } from "../middlewares/ensure-authenticated";
+import { verifyUserAuthorization } from "../middlewares/verifyUserAuthorization";
 
 const tasksRoutes = Router();
 const tasksController = new TasksController();
@@ -24,7 +24,7 @@ tasksRoutes.patch(
     tasksController.updateStatus
 );
 
-// ✅ DELETE — apenas parceiros autenticados com token podem deletar tarefas
+// DELETE — apenas parceiros autenticados com token podem deletar tarefas
 tasksRoutes.delete(
     "/:id",
     ensureAuthenticated,

@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { prisma } from "@/database/prisma";
-import { AppError } from "@/utils/AppError";
+import { prisma } from "../database/prisma";
+import { AppError } from "../utils/AppError";
 import { hash, compare } from "bcrypt";
 import { sign, verify } from "jsonwebtoken";
 import { z } from "zod";
-import { authConfig } from "@/configs/auth";
+import { authConfig } from "../configs/auth";
 
 interface TokenPayload {
     sub: string;

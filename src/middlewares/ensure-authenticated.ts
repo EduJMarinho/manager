@@ -1,11 +1,23 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
-import { authConfig } from "@/configs/auth";
-import { AppError } from "@/utils/AppError";
+import { authConfig } from "../configs/auth";
+import { AppError } from "../utils/AppError";
 
 interface TokenPayload {
     role: string;
-    sub: string; // ID do usuário como string
+    sub: string;
+}
+
+// Tipagem estendida para request.user
+declare global {
+    namespace Express {
+        interface Request {
+            user?: {
+                id: string;
+                role: string;
+            };
+        }
+    }
 }
 
 function ensureAuthenticated(
@@ -25,7 +37,7 @@ function ensureAuthenticated(
         const { role, sub: user_id } = verify(token, authConfig.jwt.secret) as TokenPayload;
 
         request.user = {
-            id: Number(user_id), // 👈 conversão segura para número
+            id: user_id, //  mantém como string para evitar conflito de tipos
             role,
         };
 

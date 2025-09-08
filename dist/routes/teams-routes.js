@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.teamsRoutes = void 0;
+const express_1 = require("express");
+const teams_controller_1 = require("../controllers/teams-controller");
+const ensure_authenticated_1 = require("../middlewares/ensure-authenticated");
+const teamsRoutes = (0, express_1.Router)();
+exports.teamsRoutes = teamsRoutes;
+const teamsController = new teams_controller_1.TeamsController();
+teamsRoutes.post("/", ensure_authenticated_1.ensureAuthenticated, teamsController.create.bind(teamsController));
+teamsRoutes.get("/", teamsController.list.bind(teamsController));
+teamsRoutes.get("/members", teamsController.listMembers.bind(teamsController));
+teamsRoutes.get("/:id", teamsController.show.bind(teamsController));
+teamsRoutes.post("/:id/members", ensure_authenticated_1.ensureAuthenticated, teamsController.addMember.bind(teamsController));
+teamsRoutes.delete("/:id", ensure_authenticated_1.ensureAuthenticated, teamsController.delete.bind(teamsController));

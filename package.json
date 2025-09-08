@@ -2,9 +2,12 @@
   "name": "manager",
   "version": "1.0.0",
   "description": "Gerenciador de tarefas",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "tsx watch --env-file .env src/server.ts"
+    "dev": "tsx watch --env-file .env src/server.ts",
+    "build": "tsc",
+    "start": "node -r tsconfig-paths/register dist/server.js",
+    "postinstall": "prisma generate && prisma migrate deploy"
   },
   "keywords": [],
   "author": "Eduardo Marinho",
@@ -16,6 +19,7 @@
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

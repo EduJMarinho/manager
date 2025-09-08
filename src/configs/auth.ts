@@ -1,4 +1,4 @@
-import { env } from "@/env";
+import { env } from "../env";
 
 if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET não está definido no .env");
