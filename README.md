@@ -1,5 +1,5 @@
 
-📚 Este projeto é uma API desenvolvida como parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). A aplicação simula o backend de um sistema de gerenciamento de tarefas, com foco em boas práticas, validação de dados e organização de código.
+# 📚 Este projeto é uma API desenvolvida como parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). A aplicação simula o backend de um sistema de gerenciamento de tarefas, com foco em boas práticas, validação de dados e organização de código.
 
 By Dev. Eduardo José Marinho
 
@@ -32,8 +32,8 @@ Este projeto é uma API RESTful desenvolvida em Node.js com TypeScript para gere
 - Cadastro e login de usuários
 - Autenticação via JWT
 - Níveis de acesso:
-  - **Administrador**: gerencia usuários e equipes
-  - **Membro**: gerencia tarefas atribuídas
+  - **Administrador(partner)**: gerencia usuários e equipes
+  - **Membro(collaborator)**: gerencia tarefas atribuídas
 
 ### Tarefas
 
@@ -44,9 +44,9 @@ Este projeto é uma API RESTful desenvolvida em Node.js com TypeScript para gere
 
 ## 🧪 Testes
 
-Os testes são escritos com **Jest**, cobrindo as principais funcionalidades da API.
+- Os testes são escritos com **Jest**, cobrindo as principais funcionalidades da API.
 
-```bash
+bash
 npm run test
 
 
@@ -80,11 +80,9 @@ Este projeto está sob licença MIT.
 
 ---
 
-##
+>#
 🧠 Analisar 📚 Aprender ❌ Errar  
    🔁 Refatorar  🛠️ Construir  
           → → → → → → →  
 → Esse é o caminho do Dev. — Edu Marinho
-
-
 
