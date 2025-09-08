@@ -1,4 +1,3 @@
-
 # 📋 Gerenciador de Tarefas
 
 Este projeto é uma API RESTful desenvolvida em Node.js e com TypeScript para gerenciamento de tarefas em equipe. Ele permite autenticação de usuários, atribuição de tarefas, categorização por status e prioridade, além de controle de acesso por níveis de permissão. Esse projeto é parte da minha jornada de aprendizado na [Rocketseat](https://www.rocketseat.com.br/). 
