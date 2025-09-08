@@ -155,6 +155,56 @@ class TeamsController {
             return response.status(500).json({ error: "Erro interno do servidor" });
         }
     }
+
+    // ✅ Mostrar time específico com membros
+    async show(request: Request, response: Response) {
+        const teamId = Number(request.params.id);
+
+        try {
+            const team = await prisma.team.findUnique({
+                where: { id: teamId },
+                include: {
+                    members: {
+                        include: { user: true }
+                    }
+                }
+            });
+
+            if (!team) {
+                return response.status(404).json({ error: "Time não encontrado" });
+            }
+
+            return response.json(team);
+        } catch (error: unknown) {
+            console.error("Erro ao buscar time:", error);
+            return response.status(500).json({ error: "Erro interno do servidor" });
+        }
+    }
+
+    // ✅ Adicionar membro a um time
+    async addMember(request: Request, response: Response) {
+        const teamId = Number(request.params.id);
+        const { userId, role } = request.body;
+
+        try {
+            const member = await prisma.team_Member.create({
+                data: {
+                    team_id: teamId,
+                    user_id: userId,
+                    role
+                },
+                include: {
+                    user: true,
+                    team: true
+                }
+            });
+
+            return response.status(201).json(member);
+        } catch (error: unknown) {
+            console.error("Erro ao adicionar membro:", error);
+            return response.status(500).json({ error: "Erro interno do servidor" });
+        }
+    }
 }
 
 export { TeamsController };
