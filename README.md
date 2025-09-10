@@ -15,6 +15,7 @@ Projeto desenvolvido como parte da minha jornada de aprendizado na Rocketseat.
 - Jest para testes automatizados
 
 📦 Estrutura do Projeto
+```
 ├── prisma/              # Migrations e schema do banco
 ├── src/                 # Código-fonte da aplicação
 │   ├── controllers/     # Lógica de controle das rotas
@@ -26,8 +27,7 @@ Projeto desenvolvido como parte da minha jornada de aprendizado na Rocketseat.
 ├── docker-compose.yml   # Configuração de containers
 ├── package.json         # Dependências e scripts
 └── tsconfig.json        # Configuração do TypeScript
-
-
+```
 
 🔐 Funcionalidades
 Autenticação e Autorização
