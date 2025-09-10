@@ -76,7 +76,7 @@ npm run dev
 📄 Licença
 Este projeto está sob licença MIT.
 ---
-🧠
+##
 Analisar 📚 Aprender ❌ Errar
 🔁 Refatorar 🛠️ Construir
 → → → → → → →
