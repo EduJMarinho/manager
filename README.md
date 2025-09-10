@@ -18,6 +18,7 @@ Este projeto é uma API RESTful desenvolvida em Node.js e com TypeScript para ge
 ## 📦 Estrutura do Projeto
 
 
+```
 ├── prisma/              # Migrations e schema do banco ├── src/                 # Código-fonte da aplicação │   ├── controllers/     # Lógica de controle das rotas │   ├── services/        # Regras de negócio │   ├── routes/          # Definição das rotas │   ├── middlewares/     # Autenticação, validações etc. │   └── utils/           # Funções auxiliares ├── .env-example         # Exemplo de variáveis de ambiente ├── docker-compose.yml   # Configuração de containers ├── package.json         # Dependências e scripts └── tsconfig.json        # Configuração do TypeScript
 
 ## 🔐 Funcionalidades
